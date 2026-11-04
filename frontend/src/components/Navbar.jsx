@@ -5,6 +5,7 @@ const links = [
   { to: "/request", label: "Request Blood" },
   { to: "/track", label: "Track Request" },
   { to: "/donor/login", label: "Donor Login" },
+  { to: "/donor/register", label: "Become a Donor" },
   { to: "/admin/login", label: "Admin" },
 ];
 
