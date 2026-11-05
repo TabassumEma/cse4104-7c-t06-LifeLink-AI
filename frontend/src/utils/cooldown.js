@@ -16,3 +16,7 @@ export function formatDate(date) {
     year: "numeric",
   });
 }
+export function daysRemaining(lastDonation, gender) {
+  const ms = nextEligibleDate(lastDonation, gender) - new Date();
+  return Math.max(0, Math.ceil(ms / (1000 * 60 * 60 * 24)));
+}

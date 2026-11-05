@@ -28,6 +28,14 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+        <Route
+  path="/donor/requests"
+  element={
+    <ProtectedRoute role="donor">
+      <Placeholder title="Matching Requests" />
+    </ProtectedRoute>
+  }
+/>
         </Routes>
       </BrowserRouter>
     </AuthProvider>
