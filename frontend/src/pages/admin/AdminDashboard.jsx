@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import AdminNav from "../../components/AdminNav";
-import { allDonors, allRequests } from "../../data/adminData";
+import { allRequests } from "../../data/adminData";
+import { getDonors } from "../../utils/donorStore";
 import { isInCooldown } from "../../utils/cooldown";
 
 const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
@@ -25,7 +26,7 @@ function StatCard({ label, value, color }) {
 export default function AdminDashboard() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-
+  const allDonors = getDonors();
   const handleLogout = () => {
     logout();
     navigate("/");

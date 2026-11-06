@@ -9,6 +9,7 @@ import DonorLogin from "./pages/auth/DonorLogin";
 import DonorDashboard from "./pages/donor/DonorDashboard";
 import AdminLogin from "./pages/auth/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import ManageDonors from "./pages/admin/ManageDonors";
 
 export default function App() {
   return (
@@ -50,7 +51,7 @@ export default function App() {
   path="/admin/donors"
   element={
     <ProtectedRoute role="admin">
-      <Placeholder title="Manage Donors" />
+      <ManageDonors />
     </ProtectedRoute>
   }
 />
