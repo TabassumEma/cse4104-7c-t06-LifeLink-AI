@@ -46,6 +46,30 @@ export default function App() {
     </ProtectedRoute>
   }
 />
+        <Route
+  path="/admin/donors"
+  element={
+    <ProtectedRoute role="admin">
+      <Placeholder title="Manage Donors" />
+    </ProtectedRoute>
+  }
+/>
+<Route
+  path="/admin/requests"
+  element={
+    <ProtectedRoute role="admin">
+      <Placeholder title="Manage Requests" />
+    </ProtectedRoute>
+  }
+/>
+<Route
+  path="/admin/create"
+  element={
+    <ProtectedRoute role="admin">
+      <Placeholder title="Create Admin" />
+    </ProtectedRoute>
+  }
+/>
         </Routes>
       </BrowserRouter>
     </AuthProvider>
