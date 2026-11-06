@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import AdminNav from "../../components/AdminNav";
-import { allRequests } from "../../data/adminData";
+import { getAdminRequests } from "../../utils/adminRequestStore";
 import { getDonors } from "../../utils/donorStore";
 import { isInCooldown } from "../../utils/cooldown";
 
@@ -27,6 +27,7 @@ export default function AdminDashboard() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const allDonors = getDonors();
+    const allRequests = getAdminRequests();
   const handleLogout = () => {
     logout();
     navigate("/");

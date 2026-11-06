@@ -20,4 +20,5 @@ export const allRequests = [
   { code: "LL-1004", patientName: "Rina Begum", bloodGroup: "O+", hospital: "Dhaka Medical College Hospital", units: 3, urgency: "High", status: "Open" },
   { code: "LL-1005", patientName: "Shamim Reza", bloodGroup: "B+", hospital: "Jashore General Hospital", units: 1, urgency: "Normal", status: "Fulfilled" },
   { code: "LL-1006", patientName: "Test Patient", bloodGroup: "AB+", hospital: "Unknown Hospital", units: 5, urgency: "Critical", status: "Closed" },
+  { code: "LL-1007", patientName: "Karim Mia", bloodGroup: "A+", hospital: "Khulna Medical College Hospital", units: 2, urgency: "Critical", status: "Open" },
 ];
