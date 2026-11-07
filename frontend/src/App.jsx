@@ -11,6 +11,7 @@ import AdminLogin from "./pages/auth/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ManageDonors from "./pages/admin/ManageDonors";
 import ManageRequests from "./pages/admin/ManageRequests";
+import CreateAdmin from "./pages/admin/CreateAdmin";
 
 export default function App() {
   return (
@@ -68,7 +69,7 @@ export default function App() {
   path="/admin/create"
   element={
     <ProtectedRoute role="admin">
-      <Placeholder title="Create Admin" />
+      <CreateAdmin />
     </ProtectedRoute>
   }
 />

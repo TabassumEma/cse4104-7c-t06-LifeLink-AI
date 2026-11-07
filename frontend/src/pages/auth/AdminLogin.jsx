@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { verifyAdmin } from "../../utils/adminStore";
 
 const inputClass =
   "w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-gray-700 focus:outline-none";
@@ -13,7 +14,7 @@ export default function AdminLogin() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -28,9 +29,10 @@ export default function AdminLogin() {
 
     setLoading(true);
     // TODO: backend তৈরি হলে এখানে axios দিয়ে admin login API call হবে
+    const admin = await verifyAdmin(email, password);
     setTimeout(() => {
-      if (email === "admin@lifelink.com" && password === "admin1234") {
-        login({ name: "Admin", role: "admin" });
+      if (admin) {
+        login({ name: admin.name, email: admin.email, role: "admin" });
         navigate("/admin/dashboard");
       } else {
         setError("Invalid email or password.");
