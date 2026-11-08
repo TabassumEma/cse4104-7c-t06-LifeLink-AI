@@ -12,6 +12,8 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import ManageDonors from "./pages/admin/ManageDonors";
 import ManageRequests from "./pages/admin/ManageRequests";
 import CreateAdmin from "./pages/admin/CreateAdmin";
+import DonorProfile from "./pages/donor/DonorProfile";
+import DonationHistory from "./pages/donor/DonationHistory";
 
 export default function App() {
   return (
@@ -70,6 +72,22 @@ export default function App() {
   element={
     <ProtectedRoute role="admin">
       <CreateAdmin />
+    </ProtectedRoute>
+  }
+/>
+        <Route
+  path="/donor/profile"
+  element={
+    <ProtectedRoute role="donor">
+      <DonorProfile />
+    </ProtectedRoute>
+  }
+/>
+<Route
+  path="/donor/history"
+  element={
+    <ProtectedRoute role="donor">
+      <DonationHistory />
     </ProtectedRoute>
   }
 />
