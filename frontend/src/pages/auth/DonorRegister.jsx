@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { nextEligibleDate, isInCooldown, formatDate } from "../../utils/cooldown";
+  import { nextEligibleDate, isInCooldown, formatDate, todayString } from "../../utils/cooldown";
 
 const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 const locations = [
@@ -39,7 +39,7 @@ export default function DonorRegister() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  const today = new Date().toISOString().split("T")[0];
+  const today = todayString();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;

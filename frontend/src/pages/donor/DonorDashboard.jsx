@@ -85,7 +85,7 @@ export default function DonorDashboard() {
             )}
             <p className="mt-3 text-xs text-gray-600">
               {hasDonated
-                ? `Last donation: ${formatDate(new Date(d.lastDonation))}`
+                ? `Last donation: ${formatDate(d.lastDonation)}`
                 : "No donation recorded yet"}
             </p>
           </div>
@@ -141,7 +141,7 @@ export default function DonorDashboard() {
                 <tbody>
                   {history.slice(0, 5).map((h) => (
                     <tr key={h.id} className="border-b last:border-0">
-                      <td className="py-2 pr-4 whitespace-nowrap">{formatDate(new Date(h.date))}</td>
+                      <td className="py-2 pr-4 whitespace-nowrap">{formatDate(h.date)}</td>
                       <td className="py-2 pr-4">{h.hospital}</td>
                       <td className="py-2">{h.bloodGroup}</td>
                     </tr>

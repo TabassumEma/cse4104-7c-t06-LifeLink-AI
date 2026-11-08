@@ -7,7 +7,7 @@ import {
   updateDonation,
   deleteDonation,
 } from "../../utils/donorProfileStore";
-import { nextEligibleDate, formatDate } from "../../utils/cooldown";
+  import { nextEligibleDate, formatDate, todayString } from "../../utils/cooldown";
 
 const inputClass =
   "w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-red-500 focus:outline-none";
@@ -22,7 +22,7 @@ export default function DonationHistory() {
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
 
-  const today = new Date().toISOString().split("T")[0];
+  const today = todayString();
   const hasDonated = Boolean(profile.lastDonation);
 
   const handleChange = (e) => {
@@ -90,7 +90,7 @@ export default function DonationHistory() {
 
   const handleDelete = (h) => {
     const ok = window.confirm(
-      `Delete the donation on ${formatDate(new Date(h.date))}? Your next eligible date will be recalculated.`
+      `Delete the donation on ${formatDate(h.date)}? Your next eligible date will be recalculated.`
     );
     if (!ok) return;
     deleteDonation(h.id);
@@ -114,7 +114,7 @@ export default function DonationHistory() {
           <div className="rounded-xl bg-white p-5 shadow">
             <p className="text-sm text-gray-500">Last donation</p>
             <p className="mt-1 text-lg font-bold">
-              {hasDonated ? formatDate(new Date(profile.lastDonation)) : "None yet"}
+              {hasDonated ? formatDate(profile.lastDonation) : "None yet"}
             </p>
           </div>
           <div className="rounded-xl bg-white p-5 shadow">
@@ -215,7 +215,7 @@ export default function DonationHistory() {
                         }`}
                       >
                         <td className="py-2 pr-4 whitespace-nowrap">
-                          {formatDate(new Date(h.date))}
+                          {formatDate(h.date)}
                         </td>
                         <td className="py-2 pr-4">{h.hospital}</td>
                         <td className="py-2 pr-4">{h.bloodGroup}</td>
