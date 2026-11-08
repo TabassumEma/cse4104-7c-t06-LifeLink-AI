@@ -1,3 +1,5 @@
+import { now, dhakaDateString } from "./clock";
+
 // Dates in the app are plain "YYYY-MM-DD" strings (what <input type="date"> gives).
 // They are read as LOCAL dates so the day never shifts with the computer's time zone.
 export function parseDate(value) {
@@ -9,12 +11,9 @@ export function parseDate(value) {
   return new Date(value);
 }
 
-// today's date as "YYYY-MM-DD" in local time
+// today's date as "YYYY-MM-DD" (Bangladesh date, corrected with server time)
 export function todayString() {
-  const d = new Date();
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${d.getFullYear()}-${month}-${day}`;
+  return dhakaDateString();
 }
 
 // PDF 4.4: 3 months for male donors, 4 months for female donors
@@ -25,7 +24,7 @@ export function nextEligibleDate(lastDonation, gender) {
 }
 
 export function isInCooldown(lastDonation, gender) {
-  return new Date() < nextEligibleDate(lastDonation, gender);
+  return now() < nextEligibleDate(lastDonation, gender);
 }
 
 export function formatDate(date) {
@@ -37,6 +36,6 @@ export function formatDate(date) {
 }
 
 export function daysRemaining(lastDonation, gender) {
-  const ms = nextEligibleDate(lastDonation, gender) - new Date();
+  const ms = nextEligibleDate(lastDonation, gender) - now();
   return Math.max(0, Math.ceil(ms / (1000 * 60 * 60 * 24)));
 }
