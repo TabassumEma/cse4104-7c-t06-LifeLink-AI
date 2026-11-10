@@ -14,6 +14,7 @@ import ManageRequests from "./pages/admin/ManageRequests";
 import CreateAdmin from "./pages/admin/CreateAdmin";
 import DonorProfile from "./pages/donor/DonorProfile";
 import DonationHistory from "./pages/donor/DonationHistory";
+import Notifications from "./pages/donor/Notifications";
 
 export default function App() {
   return (
@@ -88,6 +89,14 @@ export default function App() {
   element={
     <ProtectedRoute role="donor">
       <DonationHistory />
+    </ProtectedRoute>
+  }
+/>
+       <Route
+  path="/donor/notifications"
+  element={
+    <ProtectedRoute role="donor">
+      <Notifications />
     </ProtectedRoute>
   }
 />
