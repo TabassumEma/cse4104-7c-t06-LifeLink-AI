@@ -66,6 +66,7 @@ cse4104-7c-t06-LifeLink-AI/
 ├── backend/            # Express API
 ├── documentation/      # proposal, SRS, diagrams
 │   ├── CSE4104-7C-T06_Week01.pdf
+│   ├── CSE4104-7C-T06_TeamInfo.pdf
 │   ├── CSE4104-7C-T06_Proposal.pdf
 │   ├── CSE4104-7C-T06_SRS.pdf
 │   └── diagrams/
@@ -82,6 +83,7 @@ cse4104-7c-t06-LifeLink-AI/
 ## Documentation
 
 - [Week 01 - Team Formation & Idea Selection](documentation/CSE4104-7C-T06_Week01.pdf)
+- [Week 02 - Team Information Sheet](documentation/CSE4104-7C-T06_TeamInfo.pdf)
 - [Week 02 - Project Proposal](documentation/CSE4104-7C-T06_Proposal.pdf)
 - [Week 03 - SRS Document](documentation/CSE4104-7C-T06_SRS.pdf)
 - [Use Case Diagram](documentation/diagrams/CSE4104-7C-T06_UseCaseDiagram.pdf)
